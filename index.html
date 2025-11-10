@@ -23,18 +23,6 @@
       background:#fff;
     }
 
-    @keyframes blink{
-      0%,45%{opacity:1}
-      55%,80%{opacity:.25}
-      100%{opacity:1}
-    }
-    .blink{
-      animation:blink 1.05s linear infinite
-    }
-    @media (prefers-reduced-motion:reduce){
-      .blink{animation:none!important}
-    }
-
     .title{
       color:var(--blue);
       font-weight:900;
@@ -97,15 +85,12 @@
       font-weight:800;
       color:#fff;
       text-decoration:none;
-      background:var(--red);
+      background:var(--blue); /* changed to blue */
       border-radius:14px;
-      box-shadow:0 10px 18px rgba(255,45,45,.35);
+      box-shadow:0 10px 18px rgba(30,144,255,.18);
     }
     .btn:active{
       transform:scale(.98)
-    }
-    .btn.blink{
-      animation:blink 1.1s linear infinite
     }
 
     .card{
@@ -129,55 +114,61 @@
     .card p{
       margin:0 0 14px
     }
+
+    /* small responsive fix */
+    @media (max-width:420px){
+      .btn{padding:12px 16px}
+    }
   </style>
 </head>
 <body>
 
-  <h1 class="title blink">Watch the video below</h1>
+  <h1 class="title">Watch The Full Video</h1>
 
   <!-- Dark player-look thumbnail -->
   <a class="thumb-wrap track"
      href="https://www.revenuecpmgate.com/kv8s0rjv?key=1b79888b5322e9fbdde41e5932725428"
      target="_blank" rel="noopener">
-    <div class="player-face">
+    <div class="player-face" aria-hidden="true">
+      <!-- circle is white, triangle (play) is blue -->
       <svg class="play" width="160" height="160" viewBox="0 0 160 160"
-           xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="80" cy="80" r="42" fill="#1d4ed8"/>
-        <polygon points="70,58 70,102 108,80" fill="#ffffff"/>
+           xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" title="Play">
+        <circle cx="80" cy="80" r="42" fill="#ffffff"/>
+        <polygon points="70,58 70,102 108,80" fill="#1e90ff"/>
       </svg>
     </div>
     <div class="player-ui" aria-hidden="true"></div>
   </a>
 
-  <!-- Big Red Play Button -->
-  <a class="btn blink track"
+  <!-- Big Blue Play Button (white icon) -->
+  <a class="btn track"
      href="https://www.revenuecpmgate.com/hdj8qzmekm?key=b52a5c63522e9c1f6ca646b1f0356ddb"
-     target="_blank" rel="noopener">
+     target="_blank" rel="noopener" aria-label="Play Video">
     <svg width="22" height="22" viewBox="0 0 24 24"
          aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-      <path d="M8 5v14l11-7z" fill="#fff"></path>
+      <path d="M8 5v14l11-7z" fill="#ffffff"></path>
     </svg>
     Play Video
   </a>
 
-  <!-- Story / SEO text -->
-  <div class="card">
+  <!-- Story / SEO text (about 300 words on importance of education) -->
+  <div class="card" role="article" aria-label="The Importance of Education">
     <h2>The Importance of Education</h2>
     <p>
-      Education is more than a pathway to employment; it is a steady force that widens a person’s world. In the classroom we learn to read carefully, reason with numbers, and ask questions that expose weak ideas. These habits do not end with school. They travel with us into work, family life, and community decisions. A person who learns how to learn carries a tool that never wears out. When technology changes or economies shift, educated people can adapt, retrain, and begin again with confidence.
+      Education transforms lives by giving people the tools to understand the world and to act within it. At its best, education goes beyond memorizing facts; it trains minds to think clearly, to ask good questions, and to evaluate evidence. These skills are durable — they help learners adjust when technologies change, jobs evolve, or new challenges appear. A person who has learned how to learn can adapt, retrain, and find new opportunities rather than being left behind.
     </p>
     <p>
-      Education also strengthens communities. Literate parents can support homework, understand medical instructions, and participate in local meetings. Skilled workers design safer buildings, improve farms, and create small businesses that hire neighbors. Schools become meeting places where young people encounter others who think differently and practice cooperation, patience, and empathy. These social skills—listening, debating respectfully, and working as a team—are just as valuable as textbooks.
+      Schools and learning environments also shape values and social skills. Classrooms are places where students practice cooperation, disagreement without hostility, and respect for different viewpoints. These habits form the basis of healthy communities: literate citizens are better able to follow public health guidance, read civic documents, and participate in local decision-making. Education thereby strengthens civic life as well as individual prospects.
     </p>
     <p>
-      On a national scale, education fuels innovation. Scientists, nurses, engineers, and teachers all begin as curious students guided by patient mentors. Countries that invest in strong classrooms, qualified teachers, and fair access tend to enjoy healthier citizens and more stable growth. The benefits are not only economic. Education opens windows to history, art, and the wider human story. It helps us respect other cultures, care for the environment, and recognize the dignity of every person.
+      Economically, education raises productivity and supports innovation. When more people gain strong foundational skills — reading, numeracy, and digital literacy — businesses can grow, healthcare improves, and communities prosper. Yet the advantages are not purely financial. Education opens doors to art, literature, history, and science, encouraging curiosity and empathy. It helps people recognize shared humanity and to think critically about information and claims they encounter.
     </p>
     <p>
-      Finally, education gives individuals a voice. When we can read laws, understand contracts, and evaluate claims on social media, we are harder to deceive. We participate more fully in civic life and choose leaders based on evidence rather than rumor. For all these reasons, education is not a luxury for a few; it is a foundation for anyone hoping to build a creative, resilient, and meaningful life.
+      Finally, education is a powerful equalizer when access is fair. Societies that invest in quality teaching, inclusive schools, and lifelong learning make it more possible for talent from all backgrounds to flourish. That investment pays back in healthier, more resilient communities where individuals have a stronger voice and better choices. For these reasons, education is both a personal benefit and a public good — essential to creative, just, and adaptive societies.
     </p>
   </div>
 
-  <!-- Auto redirect after 3 seconds -->
+  <!-- Auto redirect after 3 seconds (unchanged) -->
   <script>
     // after 3000ms, send user to monetization URL
     setTimeout(function(){
@@ -189,3 +180,4 @@
 
 </body>
 </html>
+  
