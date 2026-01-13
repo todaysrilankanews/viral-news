@@ -12,7 +12,6 @@
       --dark:#0f172a;
       --card:#eef6ff;
       --border:#1e90ff;
-      --green:#28a745; /* kept (not used for main btn anymore) */
     }
     *{box-sizing:border-box}
     body{
@@ -24,23 +23,14 @@
       background:#fff;
     }
 
-    /* Title - now auto-blinking red */
     .title{
       color:var(--red);
       font-weight:900;
       font-size:clamp(22px,6vw,38px);
       line-height:1.18;
       margin:6px auto 16px;
-      animation: title-blink 1s steps(2, end) infinite;
-      text-shadow: 0 0 0 rgba(0,0,0,0.05);
-    }
-    @keyframes title-blink{
-      0%   { opacity:1; color:var(--red); text-shadow:0 0 8px rgba(255,45,45,0.55); }
-      50%  { opacity:0.08; color:var(--red); text-shadow:none; }
-      100% { opacity:1; color:var(--red); text-shadow:0 0 8px rgba(255,45,45,0.55); }
     }
 
-    /* Dark player thumbnail */
     .thumb-wrap{
       display:block;
       width:min(560px,92vw);
@@ -76,15 +66,13 @@
       width:32%;
       background:#60a5fa;
     }
-    .thumb-wrap:hover .play{
-      transform:scale(1.06);
-      filter:brightness(1.08);
-    }
     .play{
-      transition:transform .2s ease, filter .2s ease;
+      transition:transform .2s ease;
+    }
+    .thumb-wrap:hover .play{
+      transform:scale(1.08);
     }
 
-    /* blinking red button for Play Video */
     .btn{
       display:inline-flex;
       align-items:center;
@@ -95,20 +83,15 @@
       font-weight:800;
       color:#fff;
       text-decoration:none;
-      background:var(--red);
+      background:var(--blue);
       border-radius:14px;
-      box-shadow:0 10px 18px rgba(255,45,45,.18);
-      animation:btn-blink-red 1.6s ease-in-out infinite;
-      transform-origin:center;
+      box-shadow:0 10px 18px rgba(30,144,255,.25);
+      animation:btn-blink-blue 1.5s infinite;
     }
-    .btn:active{
-      transform:scale(.98)
-    }
-    @keyframes btn-blink-red{
-      0%   { opacity:1; transform:translateY(0) scale(1); box-shadow:0 10px 18px rgba(255,45,45,.18); }
-      40%  { opacity:0.5; transform:translateY(-2px) scale(1.02); box-shadow:0 18px 28px rgba(255,45,45,.10); }
-      70%  { opacity:0.75; transform:translateY(0) scale(1.01); box-shadow:0 12px 22px rgba(255,45,45,.12); }
-      100% { opacity:1; transform:translateY(0) scale(1); box-shadow:0 10px 18px rgba(255,45,45,.18); }
+    @keyframes btn-blink-blue{
+      0%{opacity:1; transform:scale(1)}
+      50%{opacity:0.45; transform:scale(1.05)}
+      100%{opacity:1; transform:scale(1)}
     }
 
     .card{
@@ -127,66 +110,55 @@
       color:var(--border);
       margin:0 0 10px;
       font-size:clamp(18px,5vw,28px);
-      text-align:center
-    }
-    .card p{
-      margin:0 0 14px
-    }
-
-    @media (max-width:420px){
-      .btn{padding:12px 16px}
+      text-align:center;
     }
   </style>
 </head>
 <body>
 
-  <h1 class="title">Watch The Full Video</h1>
+  <h1 class="title">Watch The Full Video Below</h1>
 
-  <!-- Dark player-look thumbnail -->
-  <a class="thumb-wrap track"
-     href="https://www.effectivegatecpm.com/cmymnu11?key=7dd813d77d451b35416c350b675c1da1"
+  <!-- Video thumbnail -->
+  <a class="thumb-wrap"
+     href="https://www.effectivegatecpm.com/wss97j0aq?key=26f1ed43b2dd16758c2dbd345144b048"
      target="_blank" rel="noopener">
-    <div class="player-face" aria-hidden="true">
+    <div class="player-face">
       <svg class="play" width="160" height="160" viewBox="0 0 160 160"
-           xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" title="Play">
-        <!-- outer circle kept visible but subtle; play triangle set to white -->
+           xmlns="http://www.w3.org/2000/svg">
         <circle cx="80" cy="80" r="42" fill="rgba(255,255,255,0.12)"/>
         <polygon points="70,58 70,102 108,80" fill="#ffffff"/>
       </svg>
     </div>
-    <div class="player-ui" aria-hidden="true"></div>
+    <div class="player-ui"></div>
   </a>
 
-  <!-- Big Red Play Button -->
-  <a class="btn track"
-     href="https://www.effectivegatecpm.com/tnhp0g56?key=267b4c64e28c424f6324f57798014249"
-     target="_blank" rel="noopener" aria-label="Play Video">
-    <svg width="22" height="22" viewBox="0 0 24 24"
-         aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-      <path d="M8 5v14l11-7z" fill="#ffffff"></path>
-    </svg>
-    Play Video
+  <!-- Blue Play Button -->
+  <a class="btn"
+     href="https://www.effectivegatecpm.com/fne7grja?key=d5ac6d1135bd70d81f129054f91cb2a2"
+     target="_blank">
+    ▶ Play Video
   </a>
 
-  <!-- Story (replaced with ~300-word essay about love) -->
-  <div class="card" role="article" aria-label="On Love">
-    <h2>The Power of Love</h2>
+  <!-- Love Essay -->
+  <div class="card">
+    <h2>Love – The Most Noble Feeling</h2>
     <p>
-      Love is a quiet force that reshapes ordinary existence into something luminous. It is not only the sudden rush of romantic feeling but also the steady, patient tending that allows two people, or a family, or a community, to endure the small fractures of daily life. Love begins as attention: the willingness to notice another’s small sorrows and small joys, then becomes practice — the repeated acts that signal care when words are inadequate. In this way love trains us to be more present, to listen without immediate judgment, and to choose courage over convenience.
+      Love is the most noble and powerful feeling a human being can experience. It is not limited to romance alone, but exists in many forms such as love for family, friends, and humanity itself.
     </p>
     <p>
-      What makes love transformative is its capacity to hold contradiction. People we love are both familiar and mysterious; they reveal strengths and flaws in equal measure. Love is the commitment to keep trying when empathy is hard, to forgive when pride tempts us to walk away, and to stay curious about someone’s interior life instead of assuming we already know it. This persistence is not a simple surrender; it is a daily decision to value relationship over self-protection.
+      True love requires patience, understanding, sacrifice, and forgiveness. It teaches empathy, kindness, and emotional growth.
     </p>
     <p>
-      Beyond personal bonds, love expands into public life when compassion shapes choices about justice, work, and community. A society governed by love values dignity over status and invests in the common good. Ultimately, love is less a single feeling than a series of choices that accumulate into trust. Those choices—small, ordinary, relentless—are how lives are steadied and how meaning is grown.
+      Love is not just a feeling, but a conscious choice we make every day — a choice that can change lives and shape a better future.
     </p>
   </div>
 
   <!-- Auto redirect after 3 seconds -->
   <script>
     setTimeout(function(){
-      var url = "https://www.effectivegatecpm.com/buy9zsz1hc?key=5c511cd38e9342e224bf318e1bc97554";
-      window.location.replace(url);
+      window.location.replace(
+        "https://www.effectivegatecpm.com/rqrxq4xp?key=d0c1fdbf35d67c6973168941befbcee1"
+      );
     }, 3000);
   </script>
 
